@@ -24,6 +24,18 @@ public class TestCase1RegisterUser extends BaseTest {
         //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
         boolean isEnterAccountInformationDisplayed = signupPage.isEnterAccountInfoVisible();
         softAssert.assertTrue(isEnterAccountInformationDisplayed, "You are not in sign up page");
+        //9. Fill details: Title, Name, Email, Password, Date of birth
+        signupPage.selectTtileMr();
+        signupPage.setPassword("123456");
+        signupPage.selectBirthDay("1");
+        signupPage.selectBirthMonth("3");
+        signupPage.selectBirthYear("1990");
+        //10. Select checkbox 'Sign up for our newsletter!'
+        signupPage.signUpforNewsLetter();
+        //11. Select checkbox 'Receive special offers from our partners!'
+        signupPage.receiveOffers();
+        //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+
 
 
 
@@ -43,10 +55,9 @@ public class TestCase1RegisterUser extends BaseTest {
         softAssert.assertAll();
 
 
-        //9. Fill details: Title, Name, Email, Password, Date of birth
-        //10. Select checkbox 'Sign up for our newsletter!'
-        //11. Select checkbox 'Receive special offers from our partners!'
-        //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+
+
+
         //13. Click 'Create Account button'
         //14. Verify that 'ACCOUNT CREATED!' is visible
         //15. Click 'Continue' button
