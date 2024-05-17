@@ -35,4 +35,8 @@ public class HomePage {
         clickLink("Delete Account");
         return new DeletedAccountPage(driver);
     }
+    public LoginPage clickLogoutUrl(){
+        clickLink("Logout");
+        return new LoginPage(driver);
+    }
 }

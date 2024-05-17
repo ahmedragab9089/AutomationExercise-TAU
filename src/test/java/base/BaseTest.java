@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 
 public class BaseTest {
-    private WebDriver driver;
+    protected WebDriver driver;
     protected HomePage homePage;
     protected SoftAssert softAssert;
     @BeforeClass
