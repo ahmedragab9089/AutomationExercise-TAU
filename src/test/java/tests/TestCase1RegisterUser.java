@@ -2,6 +2,8 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
+import pages.AccountCreatedPage;
+import pages.DeletedAccountPage;
 import pages.LoginPage;
 import pages.SignupPage;
 
@@ -26,7 +28,7 @@ public class TestCase1RegisterUser extends BaseTest {
         softAssert.assertTrue(isEnterAccountInformationDisplayed, "You are not in sign up page");
         //9. Fill details: Title, Name, Email, Password, Date of birth
         signupPage.selectTtileMr();
-        signupPage.setPassword("123456");
+        signupPage.enterPassword("123456");
         signupPage.selectBirthDay("1");
         signupPage.selectBirthMonth("3");
         signupPage.selectBirthYear("1990");
@@ -35,35 +37,32 @@ public class TestCase1RegisterUser extends BaseTest {
         //11. Select checkbox 'Receive special offers from our partners!'
         signupPage.receiveOffers();
         //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        softAssert.assertAll();
-
-
-
-
-
+        signupPage.enterFirstName("Ahmed");
+        signupPage.enterLastName("Ragab");
+        signupPage.enterCompany("Personal");
+        signupPage.enterAddress("India");
+        signupPage.selectCountry("India");
+        signupPage.enterState("New Delhi");
+        signupPage.enterCity("New Delhi");
+        signupPage.enterZipCode("12345");
+        signupPage.enterMobileNumber("01277410198");
         //13. Click 'Create Account button'
+        AccountCreatedPage accountCreatedPage = signupPage.clickCreateAccount();
         //14. Verify that 'ACCOUNT CREATED!' is visible
+        boolean isAccountCreatedDisplayed = accountCreatedPage.isAccountCreatedDisplayed();
+        softAssert.assertTrue(isAccountCreatedDisplayed, "You are not in account created page");
         //15. Click 'Continue' button
+        accountCreatedPage.clickContinueButton();
         //16. Verify that 'Logged in as username' is visible
+        boolean isLoggedInAsUsernameDisplayed = homePage.isLinkedInAsUsernameDisplayed();
+        softAssert.assertTrue(isLoggedInAsUsernameDisplayed, "You are not signed");
         //17. Click 'Delete Account' button
+        DeletedAccountPage deletedAccountPage = homePage.clickDeleteAccount();
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+        boolean isAccountDeletedDisplayed = deletedAccountPage.isAccountDeletedDisplayed();
+        softAssert.assertTrue(isAccountDeletedDisplayed, "The account is not deleted");
+        deletedAccountPage.clickContinueButton();
+        softAssert.assertAll();
     }
 
 }

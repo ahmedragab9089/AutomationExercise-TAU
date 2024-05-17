@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 public class HomePage {
     private WebDriver driver;
     private By homeURL = By.linkText("Home");
+    private By loggedInURL = By.cssSelector(".fa.fa-user");
+
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -24,5 +27,12 @@ public class HomePage {
     public LoginPage clickSignUpInButton(){
         clickLink("Signup / Login");
         return new LoginPage(driver);
+    }
+    public boolean isLinkedInAsUsernameDisplayed(){
+        return driver.findElement(loggedInURL).isDisplayed();
+    }
+    public DeletedAccountPage clickDeleteAccount(){
+        clickLink("Delete Account");
+        return new DeletedAccountPage(driver);
     }
 }

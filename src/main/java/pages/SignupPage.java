@@ -21,6 +21,10 @@ public class SignupPage {
     private By address = By.id("address1");
     private By country = By.id("country");
     private By state = By.id("state");
+    private By city = By.id("city");
+    private By zipCode = By.id("zipcode");
+    private By mobileNumber = By.id("mobile_number");
+    private By createAcount = By.cssSelector("[data-qa=\"create-account\"]");
 
 
     public SignupPage(WebDriver driver) {
@@ -35,7 +39,7 @@ public class SignupPage {
     public void selectTitleMrs(){
         driver.findElement(titleMrs).click();
     }
-    public void setPassword(String userPassword){
+    public void enterPassword(String userPassword){
         driver.findElement(password).sendKeys(userPassword);
     }
     public void selectBirthDay(String value){
@@ -56,20 +60,36 @@ public class SignupPage {
     public void receiveOffers(){
         driver.findElement(receiveOffers).click();
     }
-    public void setFirstName(String name){
+    public void enterFirstName(String name){
         driver.findElement(firstName).sendKeys(name);
     }
-    public void setLastName(String name){
+    public void enterLastName(String name){
         driver.findElement(lastName).sendKeys(name);
     }
-    public void setCompany(String companyName){
+    public void enterCompany(String companyName){
         driver.findElement(company).sendKeys(companyName);
     }
-    public void setAddress(String addressValue){
+    public void enterAddress(String addressValue){
         driver.findElement(address).sendKeys(addressValue);
     }
-    public void setCountry(String countryName){
+    public void selectCountry(String countryName){
         Select countryfield = new Select(driver.findElement(country));
         countryfield.selectByVisibleText(countryName);
+    }
+    public void enterState(String stateName){
+       driver.findElement(state).sendKeys(stateName);
+    }
+    public void enterCity(String cityName){
+        driver.findElement(city).sendKeys(cityName);
+    }
+    public void enterZipCode(String zipCodeValue){
+        driver.findElement(zipCode).sendKeys(zipCodeValue);
+    }
+    public void enterMobileNumber(String mobnum){
+        driver.findElement(mobileNumber).sendKeys(mobnum);
+    }
+    public AccountCreatedPage clickCreateAccount(){
+        driver.findElement(createAcount).click();
+        return new AccountCreatedPage(driver);
     }
 }

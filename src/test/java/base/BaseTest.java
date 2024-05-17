@@ -3,6 +3,7 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
@@ -19,4 +20,8 @@ public class BaseTest {
         homePage = new HomePage(driver);
         softAssert = new SoftAssert();
     }
+//    @AfterClass
+//    public void quitBrowser(){
+//        driver.quit();
+//    }
 }
