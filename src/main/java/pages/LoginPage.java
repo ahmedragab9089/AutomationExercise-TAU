@@ -14,6 +14,7 @@ public class LoginPage {
     private By password = By.cssSelector("[data-qa=\"login-password\"]");
     private By loginButton = By.cssSelector("[data-qa=\"login-button\"]");
     private By loginErrorMessage = By.cssSelector("[action=\"/login\"] p");
+    private By signupErrorMessage = By.cssSelector("[action=\"/signup\"] p");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -46,5 +47,8 @@ public class LoginPage {
     }
     public boolean isLoginErrorMessageDisplayed(){
         return driver.findElement(loginErrorMessage).isDisplayed();
+    }
+    public boolean isSignupErrorMessageDisplayed(){
+        return driver.findElement(signupErrorMessage).isDisplayed();
     }
 }
