@@ -1,9 +1,7 @@
 package base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 import pages.AccountCreatedPage;
@@ -32,7 +30,7 @@ public class BaseTest {
     //Method to register a user without deleting him as we delete the user in some test cases such as test case 1 and 2
     public void registerUserAndDoNotDeleteHim(){
         //4. Click on 'Signup / Login' button
-        LoginPage loginPage = homePage.clickSignUpInButton();
+        LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Verify 'New User Signup!' is visible
         //6. Enter name and email address
         loginPage.addSignupName("Ahmed Ragab");

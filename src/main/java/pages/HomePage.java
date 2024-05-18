@@ -24,7 +24,7 @@ public class HomePage {
         driver.findElement(By.linkText(linkText)).click();
     }
     //click sign up/in button
-    public LoginPage clickSignUpInButton(){
+    public LoginPage clickSignUpInURL(){
         clickLink("Signup / Login");
         return new LoginPage(driver);
     }

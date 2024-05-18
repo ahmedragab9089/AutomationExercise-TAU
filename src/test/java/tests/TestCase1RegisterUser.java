@@ -15,7 +15,7 @@ public class TestCase1RegisterUser extends BaseTest {
         String homeURLColor = homePage.getHomeUrlColor();
         softAssert.assertEquals(homeURLColor, "color: orange;", "You are not in home page");
         //4. Click on 'Signup / Login' button
-        LoginPage loginPage = homePage.clickSignUpInButton();
+        LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Verify 'New User Signup!' is visible
         softAssert.assertTrue(loginPage.isNewUserSignUpDisplayed(), "The New user signup is not displayed");
         //6. Enter name and email address

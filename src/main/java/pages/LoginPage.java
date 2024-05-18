@@ -13,6 +13,7 @@ public class LoginPage {
     private By loginEmail = By.cssSelector("[data-qa=\"login-email\"]");
     private By password = By.cssSelector("[data-qa=\"login-password\"]");
     private By loginButton = By.cssSelector("[data-qa=\"login-button\"]");
+    private By loginErrorMessage = By.cssSelector("[action=\"/login\"] p");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -42,5 +43,8 @@ public class LoginPage {
     public HomePage clickLoginButton(){
         driver.findElement(loginButton).click();
         return new HomePage(driver);
+    }
+    public boolean isLoginErrorMessageDisplayed(){
+        return driver.findElement(loginErrorMessage).isDisplayed();
     }
 }

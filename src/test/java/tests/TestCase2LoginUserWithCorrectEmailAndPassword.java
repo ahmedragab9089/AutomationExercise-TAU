@@ -2,11 +2,8 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.*;
-
-import java.util.Base64;
 
 public class TestCase2LoginUserWithCorrectEmailAndPassword extends BaseTest {
     @BeforeMethod //This method is called here only to register the user to be able to sign with him as we delete the user after registering him in test case 1
@@ -19,7 +16,7 @@ public class TestCase2LoginUserWithCorrectEmailAndPassword extends BaseTest {
         String homeURLColor = homePage.getHomeUrlColor();
         softAssert.assertEquals(homeURLColor, "color: orange;", "You are not in home page");
         //4. Click on 'Signup / Login' button
-        LoginPage loginPage = homePage.clickSignUpInButton();
+        LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Verify 'Login to your account' is visible
         boolean isLoginToYourAccountDisplayed = loginPage.isLoginToYourAccountDisplayed();
         softAssert.assertTrue(isLoginToYourAccountDisplayed, "The 'login to your account' is not displayed");
