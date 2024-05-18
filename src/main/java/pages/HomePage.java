@@ -28,7 +28,7 @@ public class HomePage {
         clickLink("Signup / Login");
         return new LoginPage(driver);
     }
-    public boolean isLinkedInAsUsernameDisplayed(){
+    public boolean isLoggedInAsUsernameDisplayed(){
         return driver.findElement(loggedInURL).isDisplayed();
     }
     public DeletedAccountPage clickDeleteAccount(){
