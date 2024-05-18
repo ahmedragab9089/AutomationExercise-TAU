@@ -39,4 +39,8 @@ public class HomePage {
         clickLink("Logout");
         return new LoginPage(driver);
     }
+    public ContactUsPage clickContactUs(){
+        clickLink("Contact us");
+        return new ContactUsPage(driver);
+    }
 }
