@@ -28,7 +28,7 @@ public class TestCase9SearchProduct extends BaseTest {
         //8. Verify all the products related to search are visible
 
 
-        
+
         softAssert.assertAll();
     }
 }

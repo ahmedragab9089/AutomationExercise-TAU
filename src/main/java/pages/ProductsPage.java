@@ -13,7 +13,7 @@ public class ProductsPage {
     private By searchProduct = By.id("search_product");
     private By searchButton = By.id("submit_search");
     private By searchedProductsSentence = By.xpath("//div[@class=\"features_items\"]/h2[1]");
-    private By searchedProductsParentTag = By.
+    
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
