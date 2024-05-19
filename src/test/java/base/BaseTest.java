@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 import pages.AccountCreatedPage;
@@ -9,12 +10,17 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.SignupPage;
 
+import java.io.File;
+
 public class BaseTest {
     protected WebDriver driver;
     protected HomePage homePage;
     protected SoftAssert softAssert;
     @BeforeClass
     public void setUp(){
+        ChromeOptions options = new ChromeOptions();
+        options.addExtensions(new File("C:\\Users\\AhmedRagab\\Desktop\\AhmedRagab\\Automation\\AutomationExercise-TAU\\AutomationExercise-TAU\\Extensions\\AdBlock.crx"));
+
         driver = new ChromeDriver();
         driver.get("https://automationexercise.com/");
         driver.manage().window().maximize();

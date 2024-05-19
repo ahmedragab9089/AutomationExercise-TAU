@@ -21,7 +21,7 @@ public class HomePage {
 
     //Method to call when pressing the links in homepage such as products, sign, cart page
     private void clickLink(String linkText){
-        driver.findElement(By.linkText(linkText)).click();
+        driver.findElement(By.partialLinkText(linkText)).click();
     }
     //click sign up/in button
     public LoginPage clickSignUpInURL(){
@@ -43,9 +43,14 @@ public class HomePage {
         clickLink("Contact us");
         return new ContactUsPage(driver);
     }
+    public ProductsPage clickProductsUrl(){
+        clickLink("Products");
+        return new ProductsPage(driver);
+    }
     public TestCasesPage clickTestCasesButton(){
         driver.findElement(testCasesButton).click();
         return new TestCasesPage(driver);
     }
+
 
 }
