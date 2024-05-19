@@ -8,7 +8,7 @@ public class HomePage {
     private WebDriver driver;
     private By homeURL = By.linkText("Home");
     private By loggedInURL = By.cssSelector(".fa.fa-user");
-
+    private By testCasesButton = By.cssSelector(".test_cases_list button");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -43,4 +43,9 @@ public class HomePage {
         clickLink("Contact us");
         return new ContactUsPage(driver);
     }
+    public TestCasesPage clickTestCasesButton(){
+        driver.findElement(testCasesButton).click();
+        return new TestCasesPage(driver);
+    }
+
 }
