@@ -10,6 +10,10 @@ public class ProductsPage {
     private WebDriver driver;
     private By allProductsParentTag = By.cssSelector(".features_items");
     private By viewFirstProduct = By.cssSelector("[href=\"/product_details/1\"]");
+    private By searchProduct = By.id("search_product");
+    private By searchButton = By.id("submit_search");
+    private By searchedProductsSentence = By.xpath("//div[@class=\"features_items\"]/h2[1]");
+    private By searchedProductsParentTag = By.
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -20,5 +24,14 @@ public class ProductsPage {
     public FirstProductPage clickViewFirstProduct(){
         driver.findElement(viewFirstProduct).click();
         return new FirstProductPage(driver);
+    }
+    public void searchProducts(String searchData){
+        driver.findElement(searchProduct).sendKeys(searchData);
+    }
+    public void clickSearchButton(){
+        driver.findElement(searchButton).click();
+    }
+    public String getSearchedProductsSentence(){
+        return driver.findElement(searchedProductsSentence).getText();
     }
 }
