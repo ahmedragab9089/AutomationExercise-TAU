@@ -75,6 +75,10 @@ public class HomePage {
     public String getSuccessSubscriptionMessage(){
         return driver.findElement(successSubscriptionMessage).getText();
     }
+    public CartPage clickCartUrl(){
+        clickLink("Cart");
+        return new CartPage(driver);
+    }
 
 
 }
