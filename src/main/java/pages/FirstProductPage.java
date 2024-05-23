@@ -1,7 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class FirstProductPage {
     private WebDriver driver;
@@ -11,6 +16,9 @@ public class FirstProductPage {
     private By productAvailability = By.xpath("//div[@class=\"product-information\"]/p[2]");
     private By productCondition = By.xpath("//div[@class=\"product-information\"]/p[3]");
     private By productBrand = By.xpath("//div[@class=\"product-information\"]/p[4]");
+    private By quantity = By.id("quantity");
+    private By addItemToCart = By.cssSelector(".btn.btn-default.cart");
+    private By viewCart = By.xpath("//div[@id=\"cartModal\"]//a");
 
     public FirstProductPage(WebDriver driver){
         this.driver = driver;
@@ -32,5 +40,18 @@ public class FirstProductPage {
     }
     public boolean isProductBrandDisplayed(){
         return driver.findElement(productBrand).isDisplayed();
+    }
+    public void increaseQuantity(String quantityNumber){
+        driver.findElement(quantity).clear();
+        driver.findElement(quantity).sendKeys(quantityNumber);
+    }
+    public void clickAddItemToCart(){
+        driver.findElement(addItemToCart).click();
+    }
+    public CartPage clickViewCart(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(viewCart)).click();
+        //driver.findElement().click();
+        return new CartPage(driver);
     }
 }

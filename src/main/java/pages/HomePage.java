@@ -15,6 +15,7 @@ public class HomePage {
     private By subscriptionEmail = By.id("susbscribe_email");
     private By subscriptionEmailSendButton = By.id("subscribe");
     private By successSubscriptionMessage = By.cssSelector("#success-subscribe div");
+    private By viewFirstProduct = By.cssSelector("[href=\"/product_details/1\"]");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -78,6 +79,10 @@ public class HomePage {
     public CartPage clickCartUrl(){
         clickLink("Cart");
         return new CartPage(driver);
+    }
+    public FirstProductPage clickViewFirstProduct(){
+        driver.findElement(viewFirstProduct).click();
+        return new FirstProductPage(driver);
     }
 
 

@@ -30,28 +30,9 @@ public class TestCase12AddProductsInCart extends BaseTest {
         //9. Verify both products are added to Cart
         //We can verify that there are two items in the cart
         softAssert.assertEquals(cartPage.getNumberofProductsInCart(), 2, "The two products are not added to the cart");
-
-
-
-
-
-
-
-
-
-
-
-
+        //10. Verify their prices, quantity and total price
 
         softAssert.assertAll();
 
-
-
-
-
-
-
-
-        //10. Verify their prices, quantity and total price
     }
 }
