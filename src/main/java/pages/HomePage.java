@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
     private WebDriver driver;
@@ -16,6 +20,9 @@ public class HomePage {
     private By subscriptionEmailSendButton = By.id("subscribe");
     private By successSubscriptionMessage = By.cssSelector("#success-subscribe div");
     private By viewFirstProduct = By.cssSelector("[href=\"/product_details/1\"]");
+    private By addFirstProductToCart = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"][1]/div/div/div[@class=\"productinfo text-center\"]/a");
+    private By viewCartAfterAddItemToCart = By.cssSelector(".modal-body a");
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -83,6 +90,15 @@ public class HomePage {
     public FirstProductPage clickViewFirstProduct(){
         driver.findElement(viewFirstProduct).click();
         return new FirstProductPage(driver);
+    }
+    public void setAddFirstProductToCart(){
+        driver.findElement(addFirstProductToCart).click();
+    }
+    public CartPage clickViewCartAfterAddItemToCart(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(viewCartAfterAddItemToCart)).click();
+        //driver.findElement(viewCartAfterAddItemToCart).click();
+        return new CartPage(driver);
     }
 
 

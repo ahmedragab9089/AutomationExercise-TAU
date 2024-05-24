@@ -21,7 +21,7 @@ public class ProductsPage {
     private By searchedProductsSentence = By.xpath("//div[@class=\"features_items\"]/h2[1]");
     private By allSearchedproductsNamesTags = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"]/div/div/div[1]/p");
     private By allFeaturedProductsNamesTags = By.cssSelector(".col-sm-4  div div div p");
-    private By firstProduct = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"][1]");
+        private By firstProduct = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"][1]");
     private By secondProduct = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"][2]");
     private By addFirstProductToCartFromOverlayAfterHover = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/a");
     private By addSecondProductToCartFromOverlayAfterHover = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[2]/div/a");
