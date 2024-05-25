@@ -72,24 +72,11 @@ public class TestCase14PlaceOrderRegisterWhileCheckout extends BaseTest {
         //18. Verify success message 'Your order has been placed successfully!'
         //softAssert.assertTrue(paymentPage.isSuccessMessageDisplayed(), "Your order is not placed");
         //19. Click 'Delete Account' button
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-        softAssert.assertAll();
-
-
-
+        DeletedAccountPage deletedAccountPage = homePage.clickDeleteAccount();
         //20. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+        softAssert.assertTrue(deletedAccountPage.isAccountDeletedDisplayed(),
+                "The account is not deleted");
+        deletedAccountPage.clickContinueButton();
+        softAssert.assertAll();
     }
 }
