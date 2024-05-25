@@ -6,10 +6,6 @@ import org.testng.annotations.Test;
 public class TestCase10VerifySubscriptionInHomePage extends BaseTest {
     @Test
     public void verifySubscriptionInHomePage(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Scroll down to footer
         homePage.scrollToFooter();
         //5. Verify text 'SUBSCRIPTION'

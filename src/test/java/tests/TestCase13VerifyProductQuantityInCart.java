@@ -8,10 +8,6 @@ import pages.FirstProductPage;
 public class TestCase13VerifyProductQuantityInCart extends BaseTest {
     @Test
     public void verifyProductQuantityInCart(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Click 'View Product' for any product on home page
         FirstProductPage firstProductPage = homePage.clickViewFirstProduct();
         //5. Verify product detail is opened

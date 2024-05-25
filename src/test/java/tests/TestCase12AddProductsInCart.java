@@ -11,10 +11,6 @@ import java.util.List;
 public class TestCase12AddProductsInCart extends BaseTest {
     @Test
     public void addProductsInCart(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Click 'Products' button
         ProductsPage productsPage = homePage.clickProductsUrl();
         //5. Hover over first product and click 'Add to cart'

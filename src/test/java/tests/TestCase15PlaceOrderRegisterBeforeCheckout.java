@@ -7,10 +7,6 @@ import pages.*;
 public class TestCase15PlaceOrderRegisterBeforeCheckout extends BaseTest {
     @Test
     public void placeOrderRegisterBeforeCheckout(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Click 'Signup / Login' button
         LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Fill all details in Signup and create account
@@ -47,6 +43,9 @@ public class TestCase15PlaceOrderRegisterBeforeCheckout extends BaseTest {
         CartPage cartPage = homePage.clickViewCartAfterAddItemToCart();
         //10. Verify that cart page is displayed
         String currentURL = driver.getCurrentUrl();
+        softAssert.assertEquals(currentURL,
+                "https://automationexercise.com/view_cart",
+                "You are not in the cart page");
         //11. Click Proceed To Checkout
         CheckoutPage checkoutPage = cartPage.clickProceedToCheckoutButton();
         //12. Verify Address Details and Review Your Order

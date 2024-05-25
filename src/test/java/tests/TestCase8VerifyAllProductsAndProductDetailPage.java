@@ -8,10 +8,6 @@ import pages.ProductsPage;
 public class TestCase8VerifyAllProductsAndProductDetailPage extends BaseTest {
     @Test
     public void verifyAllProductsAndProductDetailPage(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Click on 'Products' button
         ProductsPage productsPage = homePage.clickProductsUrl();
         //5. Verify user is navigated to ALL PRODUCTS page successfully

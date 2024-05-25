@@ -13,9 +13,6 @@ public class TestCase4LogoutUser extends BaseTest {
     }
     @Test
     public void logoutUser(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;", "You are not in home page");
         //4. Click on 'Signup / Login' button
         LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Verify 'Login to your account' is visible

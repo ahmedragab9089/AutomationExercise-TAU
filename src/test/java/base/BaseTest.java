@@ -26,6 +26,10 @@ public class BaseTest {
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
         softAssert = new SoftAssert();
+        //3. Verify that home page is visible successfully
+        String homeURLColor = homePage.getHomeUrlColor();
+        softAssert.assertEquals(homeURLColor, "color: orange;",
+                "You are not in home page");
     }
 
 //    @AfterClass

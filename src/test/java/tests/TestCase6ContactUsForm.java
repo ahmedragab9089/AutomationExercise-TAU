@@ -7,9 +7,6 @@ import pages.ContactUsPage;
 public class TestCase6ContactUsForm extends BaseTest {
     @Test
     public void contactUs(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;", "You are not in home page");
         //4. Click on 'Contact Us' button
         ContactUsPage contactUsPage = homePage.clickContactUs();
         //5. Verify 'GET IN TOUCH' is visible

@@ -7,10 +7,6 @@ import pages.*;
 public class TestCase14PlaceOrderRegisterWhileCheckout extends BaseTest {
     @Test
     public void placeOrderRegisterWhileCheckout(){
-        //3. Verify that home page is visible successfully
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;",
-                "You are not in home page");
         //4. Add products to cart
         homePage.setAddFirstProductToCart();
         //5. Click 'Cart' button

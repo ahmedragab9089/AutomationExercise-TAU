@@ -10,10 +10,6 @@ import pages.SignupPage;
 public class TestCase1RegisterUser extends BaseTest {
     @Test //Register user and delete him after creation
     public void registerUserAndDeleteHim(){
-        //3. Verify that home page is visible successfully
-        //We can do that by verifying the home URL color to be orange which means it is selected
-        String homeURLColor = homePage.getHomeUrlColor();
-        softAssert.assertEquals(homeURLColor, "color: orange;", "You are not in home page");
         //4. Click on 'Signup / Login' button
         LoginPage loginPage = homePage.clickSignUpInURL();
         //5. Verify 'New User Signup!' is visible
