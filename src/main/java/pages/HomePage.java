@@ -22,6 +22,11 @@ public class HomePage {
     private By viewFirstProduct = By.cssSelector("[href=\"/product_details/1\"]");
     private By addFirstProductToCart = By.xpath("//div[@class=\"features_items\"]/div[@class=\"col-sm-4\"][1]/div/div/div[@class=\"productinfo text-center\"]/a");
     private By viewCartAfterAddItemToCart = By.cssSelector(".modal-body a");
+    private By categoriesInLeftSideMenu = By. cssSelector(".left-sidebar h2");
+    private By womenCategory = By.cssSelector("[href=\"#Women\"]");
+    private By dressWomenCategory = By.cssSelector("[href=\"/category_products/1\"]");
+    private By menCategory = By.cssSelector("[href=\"#Men\"]");
+    private By tshirtsMenCategory = By.cssSelector("[href=\"/category_products/3\"]");
 
 
     public HomePage(WebDriver driver) {
@@ -99,6 +104,25 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(viewCartAfterAddItemToCart)).click();
         //driver.findElement(viewCartAfterAddItemToCart).click();
         return new CartPage(driver);
+    }
+    public boolean isCategoriesInLeftSideMenuDisplayed(){
+        return driver.findElement(categoriesInLeftSideMenu).isDisplayed();
+    }
+    public void clickWomenCategory(){
+        driver.findElement(womenCategory).click();
+    }
+    public CategoryProductsPage clickDressWomenCategory(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dressWomenCategory)).click();
+        return new CategoryProductsPage(driver);
+    }
+    public void clickMenCategory(){
+        driver.findElement(menCategory).click();
+    }
+    public CategoryProductsPage clickTshirtsMenCategory(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(tshirtsMenCategory)).click();
+        return new CategoryProductsPage(driver);
     }
 
 
