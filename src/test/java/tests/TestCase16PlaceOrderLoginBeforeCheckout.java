@@ -2,9 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.CheckoutPage;
-import pages.LoginPage;
+import pages.*;
 
 public class TestCase16PlaceOrderLoginBeforeCheckout extends BaseTest {
     @Test
@@ -30,6 +28,24 @@ public class TestCase16PlaceOrderLoginBeforeCheckout extends BaseTest {
         //10. Click Proceed To Checkout
         CheckoutPage checkoutPage = cartPage.clickProceedToCheckoutButton();
         //11. Verify Address Details and Review Your Order
+        //12. Enter description in comment text area and click 'Place Order'
+        checkoutPage.fillDescription("This is a test description");
+        PaymentPage paymentPage = checkoutPage.clickPlaceOrderButton();
+        //13. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+        paymentPage.fillNameONCard("Ahmed Ragab");
+        paymentPage.fillCardNumber("1234123412341234");
+        paymentPage.fillCVC();
+        paymentPage.fillExpirationMonth("12");
+        paymentPage.fillExpirationYear("2026");
+        //14. Click 'Pay and Confirm Order' button
+        PaymentDonePage paymentDonePage = paymentPage.clickPayAndConfirmOrderButton();
+        //15. Verify success message 'Your order has been placed successfully!'
+        //16. Click 'Delete Account' button
+        //17. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+
+        // Will not delete the account for the time being as we are using it in another test cases
+
+
 
 
 
@@ -45,11 +61,9 @@ public class TestCase16PlaceOrderLoginBeforeCheckout extends BaseTest {
 
 
 
-        //12. Enter description in comment text area and click 'Place Order'
-        //13. Enter payment details: Name on Card, Card Number, CVC, Expiration date
-        //14. Click 'Pay and Confirm Order' button
-        //15. Verify success message 'Your order has been placed successfully!'
-        //16. Click 'Delete Account' button
-        //17. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+
+
+
+
     }
 }
