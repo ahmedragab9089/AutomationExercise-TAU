@@ -23,7 +23,7 @@ public class TestCase18ViewCategoryProducts extends BaseTest {
         homePage.clickMenCategory();
         homePage.clickTshirtsMenCategory();
         String menCategoryName = categoryProductsPage.getCategoryName();
-        softAssert.assertTrue(menCategoryName.toLowerCase().contains("tshirtssss"));
+        softAssert.assertTrue(menCategoryName.toLowerCase().contains("tshirt"));
 
 
 

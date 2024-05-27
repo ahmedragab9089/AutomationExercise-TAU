@@ -27,7 +27,9 @@ public class ProductsPage {
     private By addSecondProductToCartFromOverlayAfterHover = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[2]/div/a");
     private By continueShoppingButton = By.cssSelector(".btn.btn-success.close-modal.btn-block");
     private By viewCartAfterAddItemToCart = By.cssSelector(".modal-body a");
-
+    private By brandsMenu = By.cssSelector(".brands_products h2");
+    private By poloBrand = By.cssSelector("[href=\"/brand_products/Polo\"]");
+    private By hAndmBrand = By.cssSelector("[href=\"/brand_products/H&M\"]");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -80,6 +82,17 @@ public class ProductsPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(viewCartAfterAddItemToCart)).click();
         //driver.findElement(viewCartAfterAddItemToCart).click();
         return new CartPage(driver);
+    }
+    public boolean isBarndsMenuDisplayed(){
+        return driver.findElement(brandsMenu).isDisplayed();
+    }
+    public PoloBrandPage clickPoloBrand(){
+        driver.findElement(poloBrand).click();
+        return new PoloBrandPage(driver);
+    }
+    public HAndMBrandPage clickHAndMBrand(){
+        driver.findElement(hAndmBrand).click();
+        return new HAndMBrandPage(driver);
     }
 //    public List<String> getFirstAndSecondProductsNames(){
 //        List<WebElement> featuredProductsNames = driver.findElements(allFeaturedProductsNamesTags);
